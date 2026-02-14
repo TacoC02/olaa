@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    flex-direction: column; /* Alinea el título arriba y el carrusel abajo */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f9e3e3;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden; /* Evita que la página entera tenga scroll */
+}
+
+.header_text {
+    font-size: 3em;
+    color: #d32f2f;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* 1. El marco que contiene el carrusel */
+.container {
+    height: 500px;         /* Altura de la "ventana" por donde se ven las fotos */
+    width: 200px;          /* Ancho del carrusel */
+    overflow: hidden;      /* Esconde lo que sobra */
+    position: relative;
+    border: 5px solid white;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* 2. El tren de imágenes que se mueve */
+.gif_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    /* La animación mueve todo el bloque hacia arriba */
+    animation: carruselVertical 15s linear infinite;
+}
+
+.gif_container img {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    flex-shrink: 0; /* Evita que las imágenes se aplasten */
+}
+
+/* 3. Definición del movimiento */
+@keyframes carruselVertical {
+    0% {
+        transform: translateY(0); /* Empieza en la primera imagen */
+    }
+    100% {
+        transform: translateY(-50%); /* Se desplaza hacia arriba */
+    }
+}
